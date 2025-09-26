@@ -3,18 +3,17 @@ using Newtonsoft.Json;
 
 public class Usuario {
     [JsonProperty]
-    public string nombre { get; set; }
+    public string Nombre { get; set; }
 
     [JsonProperty]
-    public int cantidadIntentos { get; set; }
-
-     public Usuario(){
+    public int CantidadIntentos { get; set; }
+    public Usuario(){
 
 
     }   
-     public Usuario(string nombre, int cantidadIntentos)
+     public Usuario(string nombre, int cantidadIntentos = 0)
         {
-            this.nombre = nombre;
-            this.cantidadIntentos = cantidadIntentos;
+            Nombre = nombre;
+            CantidadIntentos = cantidadIntentos;
         }
 }

@@ -2,7 +2,35 @@
     ViewData["Title"] = "Index";
 }
 
-<div>
-    <h1>Index</h1>
-    <p>Bienvenidos al sitio web de NombreProyecto</p>
-</div>
+ <h1>AHORCADORT</h1>
+
+    <h2>Empezar</h2>
+    <form method="post" action='@Url.Action("Comenzar","Home")'>
+        <p>Nombre:</p>
+        <input type="text" name="username" required />
+
+        <p>Dificultad:</p>
+        <select name="dificultad">
+            <option value="1">1 - Facil</option>
+            <option value="2">2 - Media</option>
+            <option value="3">3 - Dificil</option>
+            <option value="4">4 - Experto</option>
+        </select>
+
+        <p><button type="submit">Jugar</button></p>
+    </form>
+
+ <h2>Jugadores</h2>
+    @if (ViewBag.Jugadores == null || ViewBag.Jugadores.Count == 0)
+    {
+        <p>No hay partidas todavía.</p>
+    }
+    else
+    {
+         @foreach (var jugador in ViewBag.Jugadores)
+        {
+         <p>Nombre del jugador: @jugador.Nombre</p> 
+         <p>Cantidad de intentos: @jugador.CantidadIntentos</p>
+        }
+    }
+

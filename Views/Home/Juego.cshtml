@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Juego";
+    string usuario = ViewBag.Username as string ?? "Jugador";
+    string palabra = ViewBag.Palabra as string ?? "";
+}
+
+ <p>Turno de: @usuario</p>
+
+    <p>Palabra:</p>
+    
+<script>
+    let palabra = "@ViewBag.Palabra".toUpperCase();
+</script>
+    <p id="palabraOculta"></p>  
+
+    <p>Escribí una letra o una palabra:</p>
+    <input id="entrada" type="text" />
+
+    <p>
+        <button type="button" onclick="arriesgarLetra()">Arriesgar letra</button>
+        <button type="button" onclick="arriesgarPalabra()">Arriesgar palabra</button>
+    </p>
+
+    <p>Intentos:</p>
+    <p id="intentosTexto">0</p>
+    <input id="intentosHidden" type="hidden" value="0" />
+
+    <p>Letras usadas:</p>
+    <p id="letrasUsadas"></p>
+
+    <form id="formFin" method="post" action="@Url.Action("FinJuego","Home")">
+        <input type="hidden" name="intentos" id="intentosFinal" value="0" />
+        <p><button type="submit">Fin</button></p>
+    </form>
+
+    <p id="volverInicio">
+        <a href="@Url.Action("Index","Home")">Volver al inicio</a>
+    </p>
+
+    <script>
+        window.onload = function() {
+    Empezar(palabra); 
+};
+    </script>

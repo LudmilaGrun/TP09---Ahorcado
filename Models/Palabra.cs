@@ -3,14 +3,18 @@ using Newtonsoft.Json;
 
 public class Palabra {
     [JsonProperty]
-    public string texto { get; set; }
+    public string Texto { get; set; }
 
     [JsonProperty]
-    public int dificultad { get; set; }
+    public int Dificultad { get; set; }
 
-     public Palabra(string texto, int dificultad)
-        {
-            this.texto = texto;
-            this.dificultad = dificultad;
-        }
+    public Palabra() { 
+
+    }
+
+    public Palabra(string texto, int dificultad)
+    {
+        Texto = texto;
+        Dificultad = dificultad;
+    }
 }
